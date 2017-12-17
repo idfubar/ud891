@@ -32,6 +32,13 @@
         e.preventDefault();
 
         // This seems like a good place to do some stuff :)
+        if (focusedIdx == 0) {
+          this.focusedIdx = buttons.length;
+        }
+        else {
+          this.focusedIdx += 1;
+        }
+        this.changeFocus(this.focusedIdx);
 
         break;
 
@@ -43,6 +50,13 @@
         e.preventDefault();
 
         // This seems like a good place to do some stuff :)
+        if (focusedIdx == buttons.length-1) {
+          this.focusedIdx = 0;
+        }
+        else {
+          this.focusedIdx -= 1;
+        }
+        this.changeFocus(this.focusedIdx);
 
         break;
       }
