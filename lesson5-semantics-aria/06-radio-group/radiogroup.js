@@ -22,16 +22,22 @@
 
     this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
     this.el.addEventListener('click', this.handleClick.bind(this));
-
-    // Any more initialization to do here?
-
+    
     var firstButton = true;
     for (var button of this.buttons) {
       if (firstButton) {
         button.tabIndex = "0";
+        
+        //added 20171219@0045PST
+        this.focusedButton.setAttribute('aria-checked', "true");        
+        
         firstButton = false;
       } else {
         button.tabIndex = "-1";
+        
+        //added 20171219@0045PST
+        this.focusedButton.setAttribute('aria-checked', "false");
+        
       }
 
       // What about here?
@@ -93,6 +99,9 @@
     this.focusedButton.tabIndex = -1;
     this.focusedButton.removeAttribute('checked');
 
+    //added 20171219@0041PST
+    this.focusedButton.setAttribute('aria-checked', "false");
+    
     // Set the new button to tabindex 0 and focus it
     this.focusedButton = this.buttons[this.focusedIdx];
     this.focusedButton.tabIndex = 0;
@@ -100,7 +109,8 @@
     this.focusedButton.setAttribute('checked', '');
 
     // ... we probably want to do some stuff here, too ...
-
+    //added 20171219@0041PST
+    this.focusedButton.setAttribute('aria-checked', "true")
   };
 
   var group1 = new RadioGroup('#group1');
