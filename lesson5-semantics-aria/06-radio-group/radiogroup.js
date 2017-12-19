@@ -23,6 +23,8 @@
     this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
     this.el.addEventListener('click', this.handleClick.bind(this));
     
+    this.el.setAttribute('role', "radiogroup");
+    
     var firstButton = true;
     for (var button of this.buttons) {
       if (firstButton) {
@@ -41,6 +43,8 @@
       }
 
       // What about here?
+      this.el.setAttribute('role', "radio");
+      
     }
 
   }
